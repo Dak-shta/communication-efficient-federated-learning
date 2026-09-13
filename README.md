@@ -1,64 +1,64 @@
-# Federated Learning Research Log
+# Communication-Efficient Federated Learning
 
-## Project
+## Research Project
 
-Communication-Efficient and Privacy-Aware Federated Learning under Non-IID Data
+**Communication-Efficient and Privacy-Aware Federated Learning under Non-IID Data**
 
-## Research Question
+This project investigates how data heterogeneity and communication constraints affect federated learning performance, with experiments using FedAvg and FedProx on MNIST.
 
-How do data heterogeneity and communication constraints affect
-federated learning performance?
+## Research question
+> How do data heterogeneity and communication constraints affect federated learning performance, and how does FedProx behave under non-IID client data compared with FedAvg?
 
----
+## What is implemented
+- Centralized MNIST baseline
+- Federated client/server architecture
+- FedAvg with IID data
+- FedAvg with non-IID data
+- FedProx with non-IID data
+- Communication-cost analysis
+- Modular experiment scripts
+- Reproducible research documentation
 
-## Paper 1
+## Key results
+| Experiment | Final accuracy |
+|---|---:|
+| FedAvg — IID | 93.95% |
+| FedAvg — non-IID | 93.95% |
+| FedProx — non-IID | 73.07% |
 
-### Communication-Efficient Learning of Deep Networks
-from Decentralized Data
+**Cumulative communication:** 80.42 MB after 5 federated rounds in the configured 5-client setup.
 
-Authors:
-McMahan et al.
+## Research areas
+- Federated Learning
+- Distributed Machine Learning
+- Non-IID Learning
+- Federated Optimization
+- Communication-Efficient ML
+- Client Drift
+- Privacy-Aware ML
+- Edge AI
+- Efficient Distributed Deep Learning
 
-Year:
-2017
+## Research documentation
+- [`research/RESEARCH.md`](research/RESEARCH.md) — research question, methodology, results, limitations and future work
+- [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md) — experiment matrix and reproduction guide
+- [`docs/RESEARCH_GUIDE.md`](docs/RESEARCH_GUIDE.md) — professor/project matching guide
 
-### Problem
+## Reproduction
+From the repository root:
 
-Traditional centralized machine learning requires collecting
-training data in one location. This can be problematic when data
-is private, large, or naturally distributed across devices.
+```bash
+python -m experiments.centralized
+python -m experiments.fedavg_iid
+python -m experiments.fedavg_non_iid
+python -m experiments.fedprox_non_iid
+python -m experiments.communication_analysis
+```
 
-### Key Idea
+## Mitacs relevance
+This repository demonstrates hands-on experience with federated learning, distributed optimization, heterogeneous/non-IID data, communication-aware experimentation, PyTorch, quantitative evaluation, and reproducible research documentation.
 
-Federated learning keeps training data on local clients.
-Clients train locally and send model updates to a central server,
-which aggregates them to produce a global model.
+It is particularly relevant to research projects involving **federated learning, distributed AI, edge intelligence, efficient ML, privacy-aware ML, non-IID optimization, and resource-constrained learning**.
 
-### Algorithm
-
-FedAvg — Federated Averaging
-
-### Important Concepts
-
-- Client
-- Server
-- Local training
-- Global model
-- Communication round
-- Model aggregation
-- IID data
-- Non-IID data
-- Communication efficiency
-
-### Research Question I Want To Investigate
-
-How does FedAvg behave when client datasets become increasingly
-non-IID?
-
-### Planned Experiments
-
-1. Centralized training
-2. FedAvg with IID data
-3. FedAvg with non-IID data
-4. FedAvg vs FedProx
-5. Communication-cost analysis
+## Future research
+Potential extensions include stronger non-IID settings, more clients, partial participation, communication compression, convergence-vs-communication analysis, larger datasets/models, personalized federated learning, and privacy-preserving mechanisms.
